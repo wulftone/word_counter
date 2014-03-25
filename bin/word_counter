@@ -1,0 +1,6 @@
+#!/usr/bin/ruby
+
+require 'word_counter'
+
+wc = WordCounter.new ARGV[0]
+wc.report
