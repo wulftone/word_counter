@@ -1,6 +1,6 @@
 # WordCounter
 
-TODO: Write a gem description
+Counts words from either a file or a website, and prints a report to stdout.
 
 ## Installation
 
@@ -18,11 +18,26 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+To count a website's words:
+
+    $ word_counter www.example.com
+
+To count a file's words:
+
+    $ word_counter ./path/to/my/file.txt
+
+Use the `-s` switch to also report which lines contained the counted word (can result in lot of text output, so you might want to pipe it to `less`):
+
+    $ word_counter www.example.com -s | less
+
+## Roadmap
+
+- Color
+- More flexible options
 
 ## Contributing
 
-1. Fork it ( http://github.com/<my-github-username>/word_counter/fork )
+1. Fork it ( http://github.com/wulftone/word_counter/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
