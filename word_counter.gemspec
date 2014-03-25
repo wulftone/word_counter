@@ -6,11 +6,11 @@ require 'word_counter/version'
 Gem::Specification.new do |spec|
   spec.name          = "word_counter"
   spec.version       = WordCounter::VERSION
-  spec.authors       = ["wulftone"]
-  spec.email         = ["enabfluw@gmail.com"]
+  spec.authors       = ["trevor bortins"]
+  spec.email         = ["trevor.bortins@gmail.com"]
   spec.summary       = %q{Counts words in a file and prints them out in interesting ways.}
   spec.description   = %q{Counts words in a file and prints them out in interesting ways.}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/wulftone/word_counter"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
