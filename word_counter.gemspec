@@ -22,4 +22,8 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rake"
   spec.add_development_dependency "rspec"
   spec.add_development_dependency "guard-rspec"
+  spec.add_development_dependency "pry-debugger"
+
+  spec.add_dependency "curb"
+  spec.add_dependency "nokogiri"
 end

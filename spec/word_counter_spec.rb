@@ -25,34 +25,81 @@ describe WordCounter do
   let(:test_file) { './spec/test.txt' }
   let(:hash) {
     {
-      woof: 5,
-      bark: 3,
-      snort: 2
+      :bark => {:count=>3, :lines=>["bark woof woof snort", "honk woof bark", "snort bark woof"]},
+      :honk => {:count=>2, :lines=>["honk woof bark", "sniff sniff honk"]},
+      :sniff => {:count=>2, :lines=>["sniff sniff honk"]},
+      :snort => {:count=>2, :lines=>["bark woof woof snort", "snort bark woof"]},
+      :woof => {:count=>4, :lines=>["bark woof woof snort", "honk woof bark", "snort bark woof"]}
     }
   }
 
-  it 'should count words' do
-    wc = WordCounter.new test_file
+  it '#report' do
+    wc = WordCounter.new test_file, true
 
     printed = capture_stdout do
       wc.report
     end
 
-    printed.should eq "5 woof\n3 bark\n2 snort\n"
+    printed.should eq "4 woof
+    bark woof woof snort
+    honk woof bark
+    snort bark woof
+3 bark
+    bark woof woof snort
+    honk woof bark
+    snort bark woof
+2 honk
+    honk woof bark
+    sniff sniff honk
+2 sniff
+    sniff sniff honk
+2 snort
+    bark woof woof snort
+    snort bark woof
+"
   end
 
 
-  it 'should hashify words' do
+  it '.hashify_words' do
     File.open test_file do |file|
     result = WordCounter.hashify_words file
       result.should eq hash
     end
   end
 
+  it '#analyze_website' do
+    wc = WordCounter.new 'www.example.com'
 
-  it 'should raise an error if no file' do
-    expect {
-      WordCounter.new 'non-existant-file.txt'
-    }.to raise_error NoFileError
+    printed = capture_stdout do
+      wc.report
+    end
+
+    printed.should eq "2 Domain
+2 Example
+2 domain
+2 examples
+2 for
+2 in
+1 More
+1 This
+1 You
+1 asking
+1 be
+1 coordination
+1 documents
+1 established
+1 illustrative
+1 information
+1 is
+1 may
+1 or
+1 permission
+1 prior
+1 this
+1 to
+1 use
+1 used
+1 without
+"
   end
 end

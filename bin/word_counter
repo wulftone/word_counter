@@ -2,5 +2,6 @@
 
 require 'word_counter'
 
-wc = WordCounter.new ARGV[0]
+show_sentences = ARGV[1] == '-s'
+wc = WordCounter.new ARGV[0], show_sentences
 wc.report
