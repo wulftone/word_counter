@@ -2,6 +2,7 @@
 
 require 'word_counter'
 
-show_sentences = ARGV[1] == '-s'
+i = ARGV.index('-s') || -1
+show_sentences = ARGV.delete_at i if i >= 0
 wc = WordCounter.new ARGV[0], show_sentences
 wc.report
