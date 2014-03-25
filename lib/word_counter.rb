@@ -10,6 +10,7 @@ class WordCounter
   ##
   # @param filename [String] The path and filename of the file to analyze
   def initialize arg, show_sentences = false
+    raise ArgumentError, "Please supply a URL or file path." unless arg
     @show_sentences = true if show_sentences
 
     begin
