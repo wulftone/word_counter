@@ -107,9 +107,4 @@ describe WordCounter do
   end
 
 
-  it 'should raise an error for an invalid website' do
-    expect {
-      wc = WordCounter.new 'invalid website'
-    }.to raise NoWebsiteError
-  end
 end
