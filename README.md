@@ -3,6 +3,7 @@
 Counts words from either a file or a website, and prints a report to stdout.
 
 [![Build Status](https://api.travis-ci.org/wulftone/word_counter.svg?branch=master)](http://travis-ci.org/wulftone/word_counter)
+[![Gem Version](https://badge.fury.io/rb/word_counter.svg)](http://badge.fury.io/rb/word_counter)
 
 ## Installation
 
