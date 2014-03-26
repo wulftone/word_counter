@@ -60,13 +60,6 @@ describe WordCounter do
   end
 
 
-  it '.hashify_words' do
-    File.open test_file do |file|
-    result = WordCounter.hashify_words file
-      result.should eq hash
-    end
-  end
-
   it '#analyze_website' do
     wc = WordCounter.new 'www.example.com'
 
@@ -101,5 +94,22 @@ describe WordCounter do
 1 used
 1 without
 "
+  end
+
+
+  it '.urlize' do
+    url = WordCounter.urlize 'example.com'
+    url.should eq 'http://example.com'
+    url = WordCounter.urlize 'https://example.com'
+    url.should eq 'https://example.com'
+    url = WordCounter.urlize 'http://example.com'
+    url.should eq 'http://example.com'
+  end
+
+
+  it 'should raise an error for an invalid website' do
+    expect {
+      wc = WordCounter.new 'invalid website'
+    }.to raise NoWebsiteError
   end
 end
