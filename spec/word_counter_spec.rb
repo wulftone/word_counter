@@ -40,22 +40,22 @@ describe WordCounter do
       wc.report
     end
 
-    printed.should eq "4 woof
-    bark woof woof snort
-    honk woof bark
-    snort bark woof
+    printed.uncolorize.should eq "4 woof
+    1: bark woof woof snort
+    2: honk woof bark
+    3: snort bark woof
 3 bark
-    bark woof woof snort
-    honk woof bark
-    snort bark woof
+    1: bark woof woof snort
+    2: honk woof bark
+    3: snort bark woof
 2 honk
-    honk woof bark
-    sniff sniff honk
+    1: honk woof bark
+    2: sniff sniff honk
 2 sniff
-    sniff sniff honk
+    1: sniff sniff honk
 2 snort
-    bark woof woof snort
-    snort bark woof
+    1: bark woof woof snort
+    2: snort bark woof
 "
   end
 
@@ -67,7 +67,7 @@ describe WordCounter do
       wc.report
     end
 
-    printed.should eq "2 Domain
+    printed.uncolorize.should eq "2 Domain
 2 Example
 2 domain
 2 examples
@@ -105,6 +105,4 @@ describe WordCounter do
     url = WordCounter.urlize 'http://example.com'
     url.should eq 'http://example.com'
   end
-
-
 end

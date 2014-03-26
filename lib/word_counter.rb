@@ -1,6 +1,7 @@
 require "word_counter/version"
 require "net/http"
 require 'nokogiri'
+require 'colorize'
 
 class NoFileError < StandardError; end
 class NoWebsiteError < StandardError; end
@@ -34,6 +35,11 @@ class WordCounter
   end
 
 
+  def colorize str
+    str.to_s.green.bold
+  end
+
+
   ##
   # Prints a report to stdout
   def report
@@ -46,8 +52,15 @@ class WordCounter
     }
 
     sorted_hash.each do |word, data|
-      puts "#{data[:count]} #{word}"
-      puts "    #{data[:lines].join("\n    ")}" if show_sentences?
+      puts colorize "#{data[:count]} #{word}"
+
+      i = 0
+      lines = data[:lines].map { |l|
+        i += 1
+        "#{i.to_s.red}: #{l}"
+      }.join("\n    ")
+
+      puts "    #{lines}" if show_sentences?
     end
   end
 
