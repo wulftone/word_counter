@@ -40,7 +40,8 @@ describe WordCounter do
       wc.report
     end
 
-    printed.uncolorize.should eq "4 woof
+    printed.uncolorize.should eq "Results:
+4 woof
     1: bark woof woof snort
     2: honk woof bark
     3: snort bark woof
@@ -67,7 +68,8 @@ describe WordCounter do
       wc.report
     end
 
-    printed.uncolorize.should eq "2 Domain
+    printed.uncolorize.should eq "Results:
+2 Domain
 2 Example
 2 domain
 2 examples
