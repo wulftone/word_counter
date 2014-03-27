@@ -51,6 +51,7 @@ class WordCounter
       [-data[:count], word]
     }
 
+    puts 'Results:'
     sorted_hash.each do |word, data|
       puts colorize "#{data[:count]} #{word}"
 
