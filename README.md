@@ -36,21 +36,6 @@ To count a website's words:
     1 You
     1 asking
     1 be
-    1 coordination
-    1 documents
-    1 established
-    1 illustrative
-    1 information
-    1 is
-    1 may
-    1 or
-    1 permission
-    1 prior
-    1 this
-    1 to
-    1 use
-    1 used
-    1 without
 
 To count a file's words:
 
