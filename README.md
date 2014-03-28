@@ -58,8 +58,8 @@ Use the `-s` switch to also report which lines contained the counted word (can r
 
 ## Options
 
-- -c Colorize output
-- -s Show sentences containing the words in question
+- `-c` Colorize output
+- `-s` Show sentences containing the words in question
 
 ## Roadmap
 
