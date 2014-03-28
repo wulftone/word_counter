@@ -14,9 +14,10 @@ class WordCounter
   #
   # @param filename [String] The path and filename of the file to analyze
   # @param show_sentences [Boolean] (default: false) If true, WordCounter will print out the sentences which contain the counted word in question
-  def initialize arg, show_sentences = false
+  def initialize arg, show_sentences = false, colorize = false
     raise ArgumentError, "Please supply a URL or file path." unless arg
-    @show_sentences = true if show_sentences
+    @show_sentences = show_sentences
+    @colorize = colorize
 
     begin
       # try to open it as a file
@@ -35,30 +36,30 @@ class WordCounter
   end
 
 
-  def colorize str
-    str.to_s.green.bold
+  def colorize str, options
+    @colorize ? str.to_s.colorize(options) : str
   end
 
 
   ##
   # Prints a report to stdout
   def report
-    hashified_words_with_sorted_lines = @hashified_words.each do |word, data|
-      # data[:lines].sort
-    end
+    # hashified_words_with_sorted_lines = @hashified_words.each do |word, data|
+    #   data[:lines].sort
+    # end
 
-    sorted_hash = hashified_words_with_sorted_lines.sort_by { |word, data|
+    sorted_hash = @hashified_words.sort_by { |word, data|
       [-data[:count], word]
     }
 
     puts 'Results:'
     sorted_hash.each do |word, data|
-      puts colorize "#{data[:count]} #{word}"
+      puts(colorize "#{data[:count]} #{word}", color: :green, mode: :bold)
 
       i = 0
       lines = data[:lines].map { |l|
         i += 1
-        "#{i.to_s.red}: #{l}"
+        "#{colorize i, color: :red}: #{l}"
       }.join("\n    ")
 
       puts "    #{lines}" if show_sentences?

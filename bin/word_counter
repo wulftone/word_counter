@@ -2,7 +2,12 @@
 
 require 'word_counter'
 
-i = ARGV.index('-s') || -1
-show_sentences = ARGV.delete_at i if i >= 0
-wc = WordCounter.new ARGV[0], show_sentences
+def get_switch name
+  i = ARGV.index(name) || -1
+  ARGV.delete_at i if i >= 0
+end
+
+show_sentences = get_switch '-s'
+colorize = get_switch '-c'
+wc = WordCounter.new ARGV[0], show_sentences, colorize
 wc.report

@@ -56,10 +56,16 @@ Use the `-s` switch to also report which lines contained the counted word (can r
         1: This domain is established to be used for illustrative examples in documents. You may use this
         2: domain in examples without prior coordination or asking for permission.
 
+## Options
+
+  -c Colorize output
+  -s Show sentences containing the words in question
+
 ## Roadmap
 
-- Color
-- More flexible options
+- Make color optional and not-default (-c switch)
+- Ignore common words (a, for, it, the, of, etc.
+- Ignore case
 
 ## Contributing
 
