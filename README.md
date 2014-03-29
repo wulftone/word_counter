@@ -64,7 +64,7 @@ Use the `-s` switch to also report which lines contained the counted word (can r
 ## Roadmap
 
 - Make color optional and not-default (-c switch)
-- Ignore common words (a, for, it, the, of, etc.
+- Ignore common words (a, for, it, the, of, etc.)
 - Ignore case
 
 ## Contributing
