@@ -56,6 +56,10 @@ Use the `-s` switch to also report which lines contained the counted word (can r
         1: This domain is established to be used for illustrative examples in documents. You may use this
         2: domain in examples without prior coordination or asking for permission.
 
+With all the options:
+
+    $ word_counter www.example.com -s -c | less -R
+
 ## Options
 
 - `-c` Colorize output
